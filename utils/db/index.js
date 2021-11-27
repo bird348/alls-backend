@@ -1,10 +1,10 @@
 import admin from 'firebase-admin';
-import serviceAccount from './serviceAccountKey.json';
+import { env } from '../../next.config';
 
 if (!admin.apps.length) {
   try {
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
+      credential: admin.credential.cert(env),
       databaseURL: "YOUR_DB_URL"
     });
   } catch (error) {
